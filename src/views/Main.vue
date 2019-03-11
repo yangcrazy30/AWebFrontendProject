@@ -1,14 +1,18 @@
 <template>
-  <button type="button" class="btn btn-default">Left</button>
+  <Header></Header>
 </template>
 
 <script>
+  import Header from '@/components/Header'
 export default {
   name: "",
   data() {
     return {
 
     }
+  },
+  components: {
+    Header
   }
 }
 </script>
