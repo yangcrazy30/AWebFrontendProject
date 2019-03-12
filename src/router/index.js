@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/views/Main'
 import HelloWorld from '@/views/HelloWorld'
+import Index from '@/views/Index'
 Vue.use(Router)
 
 export default new Router({
@@ -12,6 +13,12 @@ export default new Router({
       component: Main,
       meta: {name: '首页', path: '/'},
       children: [
+        {
+          path: '',
+          name: 'Index',
+          component: Index,
+          meta: {name: '', path: '/'}
+        },
         {
           path: '/test',
           name: 'test',
