@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-9 col-lg-9 col-xs-12">
+      <div class="col-xs-6 a-left">
         <strong class="text-left">{{title}}</strong>
       </div>
-      <div class="col-md-3 col-lg-3 col-xs-12">
+      <div class="col-xs-6 a-right">
         <button type="button" class="btn btn-success btn-sm">更多</button>
       </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-lg-3 col-xs-6" v-for="i in test">
-            <TheImage  :description="i"></TheImage>
+        <div class="col-xs-12 col-sm-3 imageshow" v-for="image in images">
+            <TheImage  :description="image.description" :url="image.url"></TheImage>
         </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 <script>
 import TheImage from '../components/TheImage'
 export default {
-  data() {  
+  data() {
     return {
         test:['1','2','3','4'],
         temp:'dada',
@@ -36,6 +36,13 @@ export default {
 </script>
 
 <style scoped>
+  .a-left {
+    text-align: left;
+  }
+
+  .a-right {
+    text-align: right;
+  }
 strong {
   float: left;
   margin: 0.5em;
@@ -51,14 +58,14 @@ button {
   clear: both;
 }
 
-.container{
-    width: 50%;
+.container-fluid{
     border-radius: 5px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+  background: #f0f2f5;
+  margin: 0.5em 0;
 }
 
 .imageshow{
-    margin-bottom: 1em;
 }
 </style>
 

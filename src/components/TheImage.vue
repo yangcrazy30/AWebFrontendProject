@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
       <div class="row">
           <div class="col-xs-12 col=lg-12 col-md-12">
               <img src="../assets/logo.png" alt=""  class="img-thumbnail imagecontainer">
@@ -22,7 +22,7 @@ export default {
     },
     props: {
         description:String,
-        url:String 
+        url:String
     }
 };
 </script>

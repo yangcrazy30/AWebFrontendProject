@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-9 col-lg-9 col-xs-12">
+      <div class="col-xs-6 a-left">
         <strong class="text-left">{{title}}</strong>
       </div>
-      <div class="col-md-3 col-lg-3 col-xs-12">
+      <div class="col-xs-6 a-right">
         <button type="button" class="btn btn-success btn-sm">更多</button>
       </div>
     </div>
     <div class="row" v-for="info in infos">
       <div class="col-md-12 col-lg-12 col-xs-12 content">
-        <a href="info.head">{{info}}</a>
+        <a :href="info.head">{{info.title}}</a>
       </div>
     </div>
   </div>
@@ -67,10 +67,11 @@ a:active {
   color: #cdfeaa;
 }
 
-.container {
+.container-fluid {
   border-radius: 5px;
-  border: 1px solid black;
-  width: 25%;
+  /*border: 1px solid black;*/
+  background: #f0f2f5;
+  margin: 0.5em;
 }
 
 .content {
@@ -78,17 +79,22 @@ a:active {
   margin: 0.2em;
 }
 
-@media (min-width: 992px) {
-  button {
-    float: right;
-    margin: 0.5em;
-  }
+.a-left {
+  text-align: left;
+}
 
-  strong {
-    float: left;
-    margin: 0.5em;
-    margin-top: 1em;
-  }
+.a-right {
+  text-align: right;
+}
+strong {
+  float: left;
+  margin: 0.5em;
+  margin-top: 1em;
+}
+
+button {
+  float: right;
+  margin: 0.5em;
 }
 </style>
 
