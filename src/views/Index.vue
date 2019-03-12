@@ -11,6 +11,14 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <Carousel :images="images"></Carousel>
+        </div>
+        <div class="col-sm-6">
+          <InfoList :infos="infos"></InfoList>
+        </div>
+      </div>
 
       <!--bottom part-->
       <div class="row">
@@ -62,25 +70,27 @@
 <script>
   import ImageShow from '@/components/ImageShow'
   import InfoList from '@/components/InfoList'
+  import Carousel from '@/components/Carousel'
   export default {
     name: "Index",
     components: {
       ImageShow,
       InfoList,
+      Carousel,
     },
     data() {
       return {
         images: [
           {
-            url: require('../assets/logo.png'),
+            url: require('../assets/header-bg.jpg'),
             description: 'Description'
           },
           {
-            url: require('../assets/logo.png'),
+            url: require('../assets/header-bg.jpg'),
             description: 'Description'
           },
           {
-            url: require('../assets/logo.png'),
+            url: require('../assets/header-bg.jpg'),
             description: 'Description'
           },
           {

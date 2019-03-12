@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" v-if="title">
       <div class="col-xs-6 a-left">
         <strong class="text-left">{{title}}</strong>
       </div>
