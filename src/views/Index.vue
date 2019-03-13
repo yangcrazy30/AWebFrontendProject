@@ -71,6 +71,7 @@
   import ImageShow from '@/components/ImageShow'
   import InfoList from '@/components/InfoList'
   import Carousel from '@/components/Carousel'
+  import axios from '@/axios'
   export default {
     name: "Index",
     components: {
@@ -119,9 +120,20 @@
             title: '关于表彰学会先进集体和先进工作者的决定',
             time: '3月12日'
           },
-
         ]
       }
+    },
+    created: function () {
+      axios.get('', {params: {method: 'getInfos', type: '协会文件', page: '1', limit: '9'}})
+        .then((response) => {
+          this.infos = response.data.map((current) => {
+            return {
+              head: '',
+              title: current.Title,
+              time: current.date
+            }
+          })
+        })
     }
   }
 </script>
