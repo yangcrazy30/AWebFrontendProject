@@ -1,15 +1,22 @@
 <template>
-  <InfoList :infos="infos" style="background: #fff;"></InfoList>
+  <div>
+    <InfoList :infos="infos" style="background: #fff;"></InfoList>
+    <Pagination :currentPage="page" :count="count" @changePage="handleChangePage"></Pagination>
+  </div>
 </template>
 
 <script>
   import InfoList from '@/components/InfoList'
+  import Pagination from '@/components/Pagination'
   import axios from '@/axios'
     export default {
         name: "ListView",
       data() {
           return {
-            infos: []
+            infos: [],
+            count: 0,
+            page: 1,
+            limit: 10,
           }
       },
       props: {
@@ -17,11 +24,12 @@
         type: String,
         isClicked: Boolean,
       },
-      watch: {
-          type: function () {
+      methods: {
+          handleChangePage: function (page) {
+            this.page = page
             if (this.type && this.type != '') {
-              console.log('sed')
-              axios.get('', {params: {method: this.method, type: this.type, limit: 10, page: 1}}).then((res) => {
+              axios.get('', {params: {method: this.method, type: this.type, limit: this.limit, page: this.page}}).then((res) => {
+                this.count = res.count
                 this.infos = res.data.map((current) => {
                   return {
                     head: current.detailHtml,
@@ -31,7 +39,35 @@
                 })
               })
             } else {
-              axios.get('', {params: {method: this.method, limit: 10, page: 1}}).then((res) => {
+              axios.get('', {params: {method: this.method, limit: this.limit, page: this.page}}).then((res) => {
+                this.count = res.count
+                this.infos = res.data.map((current) => {
+                  return {
+                    head: current.detailHtml,
+                    title: current.Title,
+                    time: current.date
+                  }
+                })
+              })
+            }
+          }
+      },
+      watch: {
+          type: function () {
+            if (this.type && this.type != '') {
+              axios.get('', {params: {method: this.method, type: this.type, limit: this.limit, page: this.page}}).then((res) => {
+                this.count = res.count
+                this.infos = res.data.map((current) => {
+                  return {
+                    head: current.detailHtml,
+                    title: current.Title,
+                    time: current.date
+                  }
+                })
+              })
+            } else {
+              axios.get('', {params: {method: this.method, limit: this.limit, page: this.page}}).then((res) => {
+                this.count = res.count
                 this.infos = res.data.map((current) => {
                   return {
                     head: current.detailHtml,
@@ -45,8 +81,8 @@
       },
       created: function () {
         if (this.type && this.type != '') {
-          console.log('sed')
-          axios.get('', {params: {method: this.method, type: this.type, limit: 10, page: 1}}).then((res) => {
+          axios.get('', {params: {method: this.method, type: this.type, limit: this.limit, page: this.page}}).then((res) => {
+            this.count = res.count
             this.infos = res.data.map((current) => {
               return {
                 head: current.detailHtml,
@@ -56,8 +92,8 @@
             })
           })
         } else {
-          console.log(this.method)
-          axios.get('', {params: {method: this.method, limit: 10, page: 1}}).then((res) => {
+          axios.get('', {params: {method: this.method, limit: this.limit, page: this.page}}).then((res) => {
+            this.count = res.count
             this.infos = res.data.map((current) => {
               return {
                 head: current.detailHtml,
@@ -69,7 +105,8 @@
         }
       },
       components: {
-          InfoList
+          InfoList,
+        Pagination
       }
     }
 </script>
