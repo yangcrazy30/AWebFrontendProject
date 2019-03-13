@@ -10,7 +10,8 @@
     </div>
     <div class="row" v-for="info in infos">
       <div class="col-md-12 col-lg-12 col-xs-12 content">
-        <a :href="info.head">{{info.title}}</a>
+        <a class="col-sm-8 overflow" :href="info.head">{{info.title}}</a>
+        <span class="col-sm-4 a-right">[{{info.time}}]</span>
       </div>
     </div>
   </div>
@@ -29,7 +30,7 @@ export default {
   },
   props: {
     title: String,
-    infos: Array
+    infos: Array,
   }
 };
 </script>
@@ -77,6 +78,17 @@ a:active {
 .content {
   text-align: left;
   margin: 0.2em;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.overflow {
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .a-left {

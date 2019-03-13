@@ -101,19 +101,23 @@
         infos: [
           {
             head: 'http:www.baidu.com',
-            title: 'Title'
+            title: '关于表彰学会先进集体和先进工作者的决定',
+            time: '3月12日'
           },
           {
             head: 'http:www.baidu.com',
-            title: 'Title'
+            title: '关于表彰学会先进集体和先进工作者的决定',
+            time: '3月12日'
           },
           {
             head: 'http:www.baidu.com',
-            title: 'Title'
+            title: '关于表彰学会先进集体和先进工作者的决定',
+            time: '3月12日'
           },
           {
             head: 'http:www.baidu.com',
-            title: 'Title'
+            title: '关于表彰学会先进集体和先进工作者的决定',
+            time: '3月12日'
           },
 
         ]

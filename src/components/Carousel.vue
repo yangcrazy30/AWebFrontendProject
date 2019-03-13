@@ -7,11 +7,9 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div v-for="(image,index) in images" class="item" :class="{active: index==0}">
-        <img :src="image.url" :alt="image.alt" />
-        <div class="carousel-caption">
-          {{image.description}}
-        </div>
+      <div v-for="(image,index) in images" class="item photo-bg" :class="{active: index==0}">
+        <!--<img :src="image.url" :alt="image.alt" />-->
+        <div class="photo-bg" :style="{backgroundImage: 'url(' + image.url + ')' }"></div>
       </div>
     </div>
 
@@ -37,8 +35,14 @@
 </script>
 
 <style scoped>
-  .carousel {
+  .carousel-inner {
     height: 20em;
     overflow: hidden;
+  }
+  .photo-bg {
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 </style>
