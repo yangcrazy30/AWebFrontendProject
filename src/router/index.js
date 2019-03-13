@@ -776,9 +776,47 @@ export default new Router({
           {
             path: 'page',
             component: TextView,
-            mega: {
+            meta: {
               name: '文档',
               path: './'
+            }
+          }
+        ]
+      },
+      {
+        path:'/search',
+        component:Detail,
+        props:{
+          menus:[
+            {
+              title:'结果',
+              url:'search/result'
+            }
+          ]
+        },
+        meta:{
+          title:'搜索',
+          path:'/search'
+        },
+        children:[
+          {
+            path:'/search/result',
+            name:'search',
+            component:ListView,
+            props:{
+              method:'getBlurInfos'
+            },
+            meta:{
+              title:'搜索结果',
+              path:'/search/result'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              title:'文档',
+              path:'./'
             }
           }
         ]
