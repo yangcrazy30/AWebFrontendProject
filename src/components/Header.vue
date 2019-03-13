@@ -16,18 +16,18 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li role="presentation" data-toggle="pill" class="active"><a href="/">首页</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">协会介绍</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">协会活动</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">行业资讯</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">政策法规</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">风景园林</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">市县动态</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">企业信息</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">培训竞赛</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">专家库</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">园林论坛</a></li>
-              <li role="presentation" data-toggle="pill"><a href="#">人才库</a></li>
+              <li role="presentation" data-toggle="pill" class="active"><router-link to="/">首页</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/intro">协会介绍</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/activity">协会活动</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/info">行业资讯</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/rule">政策法规</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/garden">风景园林</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/county">市县动态</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/enterprise">企业信息</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/trainingcompetition">培训竞赛</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/expertlibray">专家库</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/gardenforum">园林论坛</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/hr">人才库</router-link></li>
             </ul>
           </div>
         </div>
