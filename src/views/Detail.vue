@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 aside {
-  height: 100%;
+  min-height: 100vh;
   background: peru;
   float: left;
   width: 20%;
@@ -79,7 +79,7 @@ section {
 
 footer {
   background: pink;
-  height: 10%;
+  min-height: 10vh;
 }
 
 .cle {
@@ -87,7 +87,7 @@ footer {
 }
 
 .head{
-    height: 90%;
+    min-height: 90vh;
     background: yellow;
 }
 
