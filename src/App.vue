@@ -21,9 +21,11 @@ export default {
 }
 body{
   height: 100%;
+  overflow: scroll;
 }
 
 html{
   height: 100%;
+  overflow: scroll;
 }
 </style>
