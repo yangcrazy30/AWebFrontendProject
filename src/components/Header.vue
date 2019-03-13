@@ -12,7 +12,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">江苏风景园林</a>
+            <router-link class="navbar-brand" to="/">江苏风景园林</router-link>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -28,6 +28,7 @@
               <li role="presentation" data-toggle="pill"><router-link to="/expertlibray">专家库</router-link></li>
               <li role="presentation" data-toggle="pill"><router-link to="/gardenforum">园林论坛</router-link></li>
               <li role="presentation" data-toggle="pill"><router-link to="/hr">人才库</router-link></li>
+              <li role="presentation" data-toggle="pill"><router-link to="/associationpublication">协会刊物</router-link></li>
             </ul>
           </div>
         </div>

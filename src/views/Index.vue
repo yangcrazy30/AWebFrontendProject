@@ -106,7 +106,7 @@
         .then((response) => {
           this.files = response.data.map((current) => {
             return {
-              head: '',
+              head: current.detailHtml,
               title: current.Title,
               time: current.date
             }
@@ -117,7 +117,7 @@
         .then((response) => {
           this.announcement = response.data.map((current) => {
             return {
-              head: '',
+              head: current.detailHtml,
               title: current.Title,
               time: current.date
             }
@@ -125,11 +125,11 @@
         })
 
       // TODO
-      axios.get('', {params: {method: 'getMembers', type: '', page: '1', limit: '8'}})
+      axios.get('', {params: {method: 'getMembers', page: '1', limit: '8'}})
         .then((response) => {
           this.members = response.data.map((current) => {
             return {
-              head: '',
+              head: current.detailHtml,
               title: current.Title,
               time: current.date
             }
@@ -140,7 +140,7 @@
         .then((response) => {
           this.infos = response.data.map((current) => {
             return {
-              head: '',
+              head: current.detailHtml,
               title: current.Title,
               time: current.date
             }

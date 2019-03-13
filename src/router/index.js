@@ -46,6 +46,14 @@ export default new Router({
       //   }
       // },
       {
+        path:'page',
+        component:TextView,
+        meta:{
+          name:'文档',
+          path:'./'
+        }
+      },
+      {
         path: '/intro',
         redirect: '/intro/brief',
         component: Detail,
