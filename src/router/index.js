@@ -82,12 +82,16 @@ export default new Router({
             },
             meta: {
               name: '协会简介',
-              path: '/intro/brief'
+              path: '/intro/brief',
             }
           },
           {
             path: 'rule',
             component: TextView,
+            props: {
+              method: 'getDocuments',
+              type: '协会章程',
+            },
             meta: {
               name: '协会章程',
               path: '/intro/rule'
@@ -96,6 +100,10 @@ export default new Router({
           {
             path: 'committee',
             component: TextView,
+            props: {
+              method: 'getDocuments',
+              type: '专业委员会'
+            },
             meta: {
               name: '专业委员会',
               path: '/intro/committee'
@@ -104,6 +112,10 @@ export default new Router({
           {
             path: 'district',
             component: TextView,
+            props: {
+              method: 'getDocuments',
+              type: '设区市协会'
+            },
             meta: {
               name: '设区市协会',
               path: '/intro/district'
@@ -140,11 +152,389 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getInfos',
-              type: '协会文件'
+              type: '图文活动'
             },
             meta: {
               name: '图文活动',
               path: '/activity/imgtext'
+            }
+          },
+          {
+            path: 'document',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '协会文件'
+            },
+            meta: {
+              name: '协会文件',
+              path: '/activity/document'
+            }
+          },
+          {
+            path: 'info',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '信息公开'
+            },
+            meta: {
+              name: '信息公开',
+              path: '/activity/info'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/info',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '本省资讯',
+              url: '/info/local'
+            },
+            {
+              title: '外省资讯',
+              url: '/info/foreign'
+            }
+          ]
+        },
+        meta: {
+          name: '行业资讯',
+          path: '/info'
+        },
+        children: [
+          {
+            path: 'local',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '本省资讯'
+            },
+            meta: {
+              name: '本省资讯',
+              url: '/info/local'
+            }
+          },
+          {
+            path: 'foreign',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '外省资讯',
+            },
+            meta: {
+              name: '外省资讯',
+              url: '/info/local'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/rule',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '行业政策法规',
+              url: '/rule/law'
+            }
+          ]
+        },
+        meta: {
+          name: '政策法规',
+          url: '/rule'
+        },
+        children: [
+          {
+            path: 'law',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '行业政策法规'
+            },
+            meta: {
+              name: '行业政策法规',
+              url: '/rule/law'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/garden',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '公园湿地',
+              url: '/garden/wetland'
+            },
+            {
+              title: '风景名胜',
+              url: '/garden/famous'
+            }
+          ]
+        },
+        meta: {
+          name: '风景园林',
+          url: '/garden'
+        },
+        children: [
+          {
+            path: 'wetland',
+            component: ListView,
+            props: {
+              method: 'getImgTexts',
+              type: '公园湿地'
+            },
+            meta: {
+              name: '公园湿地',
+              url: '/garden/wetland'
+            }
+          },
+          {
+            path: 'famous',
+            component: ListView,
+            props: {
+              method: 'getImgTexts',
+              type: '风景名胜',
+            },
+            meta: {
+              name: '风景名胜',
+              url: '/garden/famous'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/county',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '市县园林政府部门',
+              url: '/county/gov'
+            },
+            {
+              title: '协会动态',
+              url: '/county/activity',
+            }
+          ]
+        },
+        meta: {
+          name: '市县动态',
+          url: '/county'
+        },
+        children: [
+          {
+            path: '/county/gov',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '园林政府部门动态',
+            },
+            meta: {
+              name: '园林政府部门动态',
+              url: '/county/gov'
+            }
+          },
+          {
+            path: '/county/activity',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '协会动态'
+            },
+            meta: {
+              name: '协会动态',
+              url: '/county/activity'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/enterprise',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '企业介绍',
+              url: '/enterprise/intro'
+            },
+            {
+              title: '企业动态',
+              url: '/enterprise/activity'
+            }
+          ]
+        },
+        meta: {
+          name: '企业信息',
+          url: '/enterprise'
+        },
+        children: [
+          {
+            path: 'intro',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '企业介绍',
+            },
+            meta: {
+              name: '企业介绍',
+              url: '/enterprise/intro'
+            }
+          },
+          {
+            path: 'activity',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '企业动态',
+            },
+            meta: {
+              name: '企业动态',
+              url: '/enterprise/activity'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/members',
+        component: Detail,
+        props: {
+          menus: []
+        },
+        meta: {
+          name: '会员介绍',
+          url: '/members'
+        },
+        children: [
+          {
+            path: '',
+            component: ListView,
+            props: {
+              method: 'getMembers',
+              type: ''
+            },
+            meta: {
+              name: '',
+              url: '/members'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+
+      },
+      {
+        path: '/notice',
+        component: Detail,
+        props: {
+          menus: []
+        },
+        meta: {
+          name: '通知公告',
+          url: '/notice'
+        },
+        children: [
+          {
+            path: '',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '协会公告',
+            },
+            meta: {
+              name: '',
+              url: '/notice'
+            }
+          },
+          {
+            path:'page',
+            component:TextView,
+            meta:{
+              name:'文档',
+              path:'./'
+            }
+          }
+        ]
+      },
+      {
+        path: '/hr',
+        component: Detail,
+        props: {
+          menus: []
+        },
+        meta: {
+          name: '人才库',
+          url: '/hr'
+        },
+        children: [
+          {
+            path: '',
+            component: ListView,
+            props: {
+              method: 'getInfos',
+              type: '人才库',
+            },
+            meta: {
+              name: '',
+              url: '/hr'
             }
           },
           {
