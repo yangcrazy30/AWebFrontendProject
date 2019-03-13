@@ -1,16 +1,17 @@
 <template>
   <div class="contain">
     <aside>
+      <nav class="navbar navbar-default mynav">
       <ul class="nav nav-pills nav-stacked">
-        <li v-for="(menu, index) in menus" role="presentation" :class="{active: index==0}">
-          <a :href="menu.url">{{menu.title}}</a>
+        <li v-for="(menu, index) in menus" role="presentation" data-toggle="pill" >
+          <router-link :to="menu.url">{{menu.title}}</router-link>
         </li>
       </ul>
+      </nav>
     </aside>
 
     <section>
       <div class="head">
-          <p>hhhhhh</p>
           <router-view></router-view>
       </div>
       <footer>
@@ -88,5 +89,9 @@ footer {
 .contain{
     height: 100%;
 }
+
+  .navbar {
+    height: 100vh;
+  }
 </style>
 

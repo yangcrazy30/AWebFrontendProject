@@ -10,7 +10,7 @@
     </div>
     <div class="row" v-for="info in infos">
       <div class="col-md-12 col-lg-12 col-xs-12 content">
-        <a class="col-sm-8 overflow" :href="info.head">{{info.title}}</a>
+        <router-link class="col-sm-8 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
         <span class="col-sm-4 a-right">[{{info.time}}]</span>
       </div>
     </div>
