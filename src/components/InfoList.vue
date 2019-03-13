@@ -73,6 +73,7 @@ a:active {
   /*border: 1px solid black;*/
   background: #f0f2f5;
   margin: 0.5em;
+  min-height: 20em;
 }
 
 .content {

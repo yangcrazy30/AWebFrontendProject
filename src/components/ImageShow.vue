@@ -63,6 +63,7 @@ button {
     /*border: 1px solid black;*/
   background: #f0f2f5;
   margin: 0.5em 0;
+  min-height: 10em;
 }
 
 .imageshow{

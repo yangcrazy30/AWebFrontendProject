@@ -10,6 +10,9 @@
       <div v-for="(image,index) in images" class="item photo-bg" :class="{active: index==0}">
         <!--<img :src="image.url" :alt="image.alt" />-->
         <div class="photo-bg" :style="{backgroundImage: 'url(' + image.url + ')' }"></div>
+        <div class="carousel-caption">
+          {{image.description}}
+        </div>
       </div>
     </div>
 
@@ -29,7 +32,7 @@
     export default {
       name: "Carousel",
       props: {
-        images: Array
+        images: Array,
       }
     }
 </script>
@@ -44,5 +47,8 @@
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  .carousel-caption {
+    background-color: rgba(0,0,0,0.5);
   }
 </style>

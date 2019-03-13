@@ -41,6 +41,52 @@ export default new Router({
           name: '详情',
           path: '/detail'
         }
+      },
+      {
+        path: '/intro',
+        component: Detail,
+        props: {
+          menus: [
+            {
+              title: '协会简介',
+              url: '/intro/brief'
+            },
+            {
+              title: '协会章程',
+              url: '/intro/rule',
+            },
+            {
+              title: '专业委员会',
+              url: '/intro/committee'
+            },
+            {
+              title: '设区市协会',
+              url: '/intro/district'
+            }
+          ]
+        },
+        meta: {
+          name: '协会介绍',
+          path: '/intro',
+        },
+        children: [
+          {
+            path: 'brief',
+            component: '',
+          },
+          {
+            path: 'rule',
+            component: '',
+          },
+          {
+            path: 'committee',
+            component: ''
+          },
+          {
+            path: 'district',
+            component: ''
+          }
+        ]
       }
     ]
   }]

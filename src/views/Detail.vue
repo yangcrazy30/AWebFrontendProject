@@ -2,14 +2,8 @@
   <div class="contain">
     <aside>
       <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" class="active">
-          <a href="#">Home</a>
-        </li>
-        <li role="presentation">
-          <a href="#">Profile</a>
-        </li>
-        <li role="presentation">
-          <a href="#">Messages</a>
+        <li v-for="(menu, index) in menus" role="presentation" :class="{active: index==0}">
+          <a :href="menu.url">{{menu.title}}</a>
         </li>
       </ul>
     </aside>
@@ -58,7 +52,11 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+    };
+  },
+  props: {
+    menus: Array,
   }
 };
 </script>
@@ -66,19 +64,16 @@ export default {
 <style scoped>
 aside {
   min-height: 100vh;
-  background: peru;
   float: left;
   width: 20%;
 }
 section {
   height: 100%;
-  background: blueviolet;
   float: right;
   width: 80%;
 }
 
 footer {
-  background: pink;
   min-height: 10vh;
 }
 
@@ -88,7 +83,6 @@ footer {
 
 .head{
     min-height: 90vh;
-    background: yellow;
 }
 
 .contain{
