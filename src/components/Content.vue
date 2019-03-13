@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contain">
     <ol class="breadcrumb">
       <li v-for="breadCrumb in breadCrumbs"><router-link :to="breadCrumb.meta.path">{{breadCrumb.meta.name}}</router-link></li>
     </ol>
@@ -29,5 +29,8 @@
 <style scoped>
   .breadcrumb {
     text-align: left;
+  }
+  .contain{
+    height: 100%;
   }
 </style>
