@@ -47,6 +47,7 @@ export default new Router({
       // },
       {
         path: '/intro',
+        redirect: '/intro/brief',
         component: Detail,
         props: {
           menus: [
@@ -125,6 +126,7 @@ export default new Router({
       },
       {
         path: '/activity',
+        redirect: '/activity/imgtext',
         component: Detail,
         props: {
           menus: [
@@ -195,6 +197,7 @@ export default new Router({
       },
       {
         path: '/info',
+        redirect: '/info/local',
         component: Detail,
         props: {
           menus: [
@@ -222,7 +225,7 @@ export default new Router({
             },
             meta: {
               name: '本省资讯',
-              url: '/info/local'
+              path: '/info/local'
             }
           },
           {
@@ -234,7 +237,7 @@ export default new Router({
             },
             meta: {
               name: '外省资讯',
-              url: '/info/local'
+              path: '/info/local'
             }
           },
           {
@@ -249,6 +252,7 @@ export default new Router({
       },
       {
         path: '/rule',
+        redirect: '/rule/law',
         component: Detail,
         props: {
           menus: [
@@ -260,7 +264,7 @@ export default new Router({
         },
         meta: {
           name: '政策法规',
-          url: '/rule'
+          path: '/rule'
         },
         children: [
           {
@@ -272,7 +276,7 @@ export default new Router({
             },
             meta: {
               name: '行业政策法规',
-              url: '/rule/law'
+              path: '/rule/law'
             }
           },
           {
@@ -287,6 +291,7 @@ export default new Router({
       },
       {
         path: '/garden',
+        redirect: '/garden/wetland',
         component: Detail,
         props: {
           menus: [
@@ -302,7 +307,7 @@ export default new Router({
         },
         meta: {
           name: '风景园林',
-          url: '/garden'
+          path: '/garden'
         },
         children: [
           {
@@ -314,7 +319,7 @@ export default new Router({
             },
             meta: {
               name: '公园湿地',
-              url: '/garden/wetland'
+              path: '/garden/wetland'
             }
           },
           {
@@ -326,7 +331,7 @@ export default new Router({
             },
             meta: {
               name: '风景名胜',
-              url: '/garden/famous'
+              path: '/garden/famous'
             }
           },
           {
@@ -341,6 +346,7 @@ export default new Router({
       },
       {
         path: '/county',
+        redirect: '/county/activity',
         component: Detail,
         props: {
           menus: [
@@ -356,7 +362,7 @@ export default new Router({
         },
         meta: {
           name: '市县动态',
-          url: '/county'
+          path: '/county'
         },
         children: [
           {
@@ -368,7 +374,7 @@ export default new Router({
             },
             meta: {
               name: '园林政府部门动态',
-              url: '/county/gov'
+              path: '/county/gov'
             }
           },
           {
@@ -380,7 +386,7 @@ export default new Router({
             },
             meta: {
               name: '协会动态',
-              url: '/county/activity'
+              path: '/county/activity'
             }
           },
           {
@@ -395,6 +401,7 @@ export default new Router({
       },
       {
         path: '/enterprise',
+        redirect: '/enterprise/intro',
         component: Detail,
         props: {
           menus: [
@@ -410,7 +417,7 @@ export default new Router({
         },
         meta: {
           name: '企业信息',
-          url: '/enterprise'
+          path: '/enterprise'
         },
         children: [
           {
@@ -422,7 +429,7 @@ export default new Router({
             },
             meta: {
               name: '企业介绍',
-              url: '/enterprise/intro'
+              path: '/enterprise/intro'
             }
           },
           {
@@ -434,7 +441,7 @@ export default new Router({
             },
             meta: {
               name: '企业动态',
-              url: '/enterprise/activity'
+              path: '/enterprise/activity'
             }
           },
           {
@@ -449,17 +456,18 @@ export default new Router({
       },
       {
         path: '/members',
+        redirect: '/members/members',
         component: Detail,
         props: {
           menus: []
         },
         meta: {
           name: '会员介绍',
-          url: '/members'
+          path: '/members'
         },
         children: [
           {
-            path: '',
+            path: 'members',
             component: ListView,
             props: {
               method: 'getMembers',
@@ -467,7 +475,7 @@ export default new Router({
             },
             meta: {
               name: '',
-              url: '/members'
+              path: '/members'
             }
           },
           {
@@ -483,17 +491,18 @@ export default new Router({
       },
       {
         path: '/notice',
+        redirect: '/notice/notice',
         component: Detail,
         props: {
           menus: []
         },
         meta: {
           name: '通知公告',
-          url: '/notice'
+          path: '/notice'
         },
         children: [
           {
-            path: '',
+            path: 'notice',
             component: ListView,
             props: {
               method: 'getInfos',
@@ -501,7 +510,7 @@ export default new Router({
             },
             meta: {
               name: '',
-              url: '/notice'
+              path: '/notice'
             }
           },
           {
@@ -516,17 +525,18 @@ export default new Router({
       },
       {
         path: '/hr',
+        redirect: '/hr/hr',
         component: Detail,
         props: {
           menus: []
         },
         meta: {
           name: '人才库',
-          url: '/hr'
+          path: '/hr'
         },
         children: [
           {
-            path: '',
+            path: 'hr',
             component: ListView,
             props: {
               method: 'getInfos',
@@ -534,7 +544,7 @@ export default new Router({
             },
             meta: {
               name: '',
-              url: '/hr'
+              path: '/hr'
             }
           },
           {
@@ -549,6 +559,7 @@ export default new Router({
       },
       {
         path:'/trainingcompetition',
+        redirect: '/trainingcompetition/train',
         component:Detail,
         props:{
           menus:[
@@ -562,13 +573,13 @@ export default new Router({
             },
             {
               title:'技能竞赛',
-              url:'/trainingcompetiton/skill'
+              url:'/trainingcompetition/skill'
             }
           ]
         },
         meta:{
           name:'培训竞赛',
-          pathL:'/trainingcompetition'
+          path:'/trainingcompetition'
         },
         children:[
           {
@@ -620,6 +631,7 @@ export default new Router({
       },
       {
         path:'/expertlibray',
+        redirect: '/expertlibray/designmaster',
         component:Detail,
         props:{
           menus:[
@@ -690,6 +702,7 @@ export default new Router({
       },
       {
         path:'/gardenforum',
+        redirect: '/gardenforum/theoreticaldevelopment',
         component:Detail,
         props:{
           menus:[
@@ -744,7 +757,8 @@ export default new Router({
       },
       {
         path:'/associationpublication',
-        component:ListView,
+        redirect: '/associationpublication/jiangsu',
+        component:Detail,
         props:{
           menus:[
             {
@@ -755,7 +769,7 @@ export default new Router({
         },
         meta:{
           name:'协会刊物',
-          url:'/associationpublication'
+          path:'/associationpublication'
         },
         children:[
           {
