@@ -30,7 +30,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <InfoList title="会员介绍" :infos="members"></InfoList>
+              <InfoList title="会员介绍" :infos="members" style="min-height: 15em"></InfoList>
             </div>
           </div>
         </div>
@@ -57,9 +57,16 @@
               <InfoList title="行业资讯" :infos="infos"></InfoList>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <InfoList title="会员之家" :infos="infos"></InfoList>
+          <div style="display: flex; flex-direction: column; padding: 0 10px;">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 0.3em 0;">
+              <div><router-link :to="'/page?detailHtml='+vipKnow"><img :src="require('../assets/vipKnown.png')"></router-link></div>
+              <div><a href="http://211.149.129.88/GardensTrain/index.html"><img :src="require('../assets/trainApply.png')"></a></div>
+            </div>
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-around; margin: 0.3em 0;">
+              <div style="width: 100%;"><a href="http://211.149.129.88/yuanlin/login.jsp"><img style="width: 100%;" :src="require('../assets/adminLogin.png')"></a></div>
+            </div>
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-around; margin: 0.3em 0;">
+              <div style="width: 100%;"><a href="http://211.149.129.88/shopModule1/login.jsp"><img style="width: 100%;" :src="require('../assets/expertLogin.png')"></a></div>
             </div>
           </div>
         </div>
@@ -89,7 +96,8 @@
         announcement: [],
         members: [],
         infos: [],
-        searchinput:''
+        searchinput:'',
+        vipKnow: ''
       }
     },
     methods: {
@@ -185,6 +193,11 @@
               head: current.detailHtml,
             }
           })
+        })
+
+      axios.get('', {params: {method: 'getDocuments', type: '入会须知'}})
+        .then((response) => {
+          this.vipKnow = response.data[0].detailHtml
         })
     }
   }
