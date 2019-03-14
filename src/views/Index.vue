@@ -104,6 +104,7 @@
             return {
               url: current.img,
               description: current.Title,
+              head: current.detailHtml,
             }
           })
         })
@@ -158,7 +159,8 @@
           this.magazines = response.data.map((current) => {
             return {
               description: current.Title,
-              url: current.img
+              url: current.img,
+              head: current.detailHtml,
             }
           })
         })
@@ -168,7 +170,8 @@
           this.wetland = response.data.map((current) => {
             return {
               description: current.Title,
-              url: current.img
+              url: current.img,
+              head: current.detailHtml,
             }
           })
         })
@@ -178,7 +181,8 @@
           this.famous = response.data.map((current) => {
             return {
               description: current.Title,
-              url: current.img
+              url: current.img,
+              head: current.detailHtml,
             }
           })
         })

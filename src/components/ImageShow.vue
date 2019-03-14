@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-3 imageshow" v-for="image in images">
-            <TheImage  :description="image.description" :url="image.url"></TheImage>
+            <TheImage :head="image.head"  :description="image.description" :url="image.url"></TheImage>
         </div>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 
-  
+
 
   .a-left {
     text-align: left;
@@ -48,13 +48,12 @@ export default {
   }
 strong {
   float: left;
-  margin: 0.5em;
   margin-top: 1em;
 }
 
 button {
   float: right;
-  margin: 0.5em;
+  margin-top: 0.5em;
 }
 
 .cle {

@@ -11,7 +11,7 @@
         <!--<img :src="image.url" :alt="image.alt" />-->
         <div class="photo-bg" :style="{backgroundImage: 'url(' + image.url + ')' }"></div>
         <div class="carousel-caption">
-          {{image.description}}
+          <router-link :to="'/page?detailHtml='+image.head" style="color: #fff;">{{image.description}}</router-link>
         </div>
       </div>
     </div>

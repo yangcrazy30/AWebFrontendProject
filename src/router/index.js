@@ -46,7 +46,7 @@ export default new Router({
       //   }
       // },
       {
-        path:'page',
+        path:'/page',
         component:TextView,
         meta:{
           name:'文档',
