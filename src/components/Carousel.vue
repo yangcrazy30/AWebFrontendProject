@@ -1,5 +1,5 @@
 <template>
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin:0.5em">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li v-for="(image,index) in images" data-target="#carousel-example-generic" :data-slide-to="index">0</li>
@@ -39,12 +39,12 @@
 
 <style scoped>
   .carousel-inner {
-    height: 20em;
+    height: 30em;
     overflow: hidden;
   }
   .photo-bg {
     height: 100%;
-    -webkit-background-size: cover;
+    -webkit-background-size: contain;
     background-size: cover;
     background-repeat: no-repeat;
   }

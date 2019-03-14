@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+
+  
+
   .a-left {
     text-align: left;
   }
@@ -67,6 +70,8 @@ button {
 }
 
 .imageshow{
+  margin: 0;
+  padding: 0;
 }
 </style>
 

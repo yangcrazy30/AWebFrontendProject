@@ -2,17 +2,17 @@
   <div class="contain">
     <aside>
       <nav class="navbar navbar-default mynav">
-      <ul class="nav nav-pills nav-stacked">
-        <li v-for="(menu, index) in menus" role="presentation" data-toggle="pill" >
-          <router-link :to="menu.url">{{menu.title}}</router-link>
-        </li>
-      </ul>
+        <ul class="nav nav-pills nav-stacked">
+          <li v-for="(menu, index) in menus" role="presentation" data-toggle="pill">
+            <router-link :to="menu.url">{{menu.title}}</router-link>
+          </li>
+        </ul>
       </nav>
     </aside>
 
     <section>
       <div class="head">
-          <router-view></router-view>
+        <router-view></router-view>
       </div>
     </section>
     <div class="cle"></div>
@@ -22,11 +22,10 @@
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   props: {
-    menus: Array,
+    menus: Array
   }
 };
 </script>
@@ -43,22 +42,24 @@ section {
   width: 80%;
 }
 
-
-
 .cle {
   clear: both;
 }
 
-.head{
-    /*min-height: 90vh;*/
+.head {
+  /*min-height: 90vh;*/
 }
 
-.contain{
-    height: 100%;
+.contain {
+  height: 100%;
 }
 
-  .navbar {
-    height: 100vh;
-  }
+.navbar {
+  height: 100vh;
+}
+
+.mynav {
+  margin-right: 2em;
+}
 </style>
 

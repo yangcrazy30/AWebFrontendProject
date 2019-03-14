@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
       <div class="row">
-          <div class="col-xs-12 col=lg-12 col-md-12">
+          <div class="col-xs-12 col=lg-12 col-md-12 imageshow">
               <img :src="url" alt=""  class="img-thumbnail imagecontainer">
           </div>
       </div>
@@ -34,6 +34,11 @@ export default {
 
 .imagecontainer{
     margin-top: 1.5em;
+}
+
+.imageshow{
+    margin: 0;
+    padding: 5px;
 }
 </style>
 

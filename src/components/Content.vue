@@ -1,5 +1,5 @@
 <template>
-  <div class="contain">
+  <div class="contain outer-contain">
     <ol class="breadcrumb">
       <li v-for="breadCrumb in breadCrumbs"><router-link :to="breadCrumb.meta.path">{{breadCrumb.meta.name}}</router-link></li>
     </ol>
@@ -30,7 +30,19 @@
   .breadcrumb {
     text-align: left;
   }
-  .contain{
+
+
+  .outer-contain{
     min-height: 100vh;
+    margin: auto 10%;
   }
+
+  @media   (max-width: 768px) {
+    .outer-contain{
+      min-height: 100vh;
+      margin: 0;
+    }
+  }
+
+  
 </style>
