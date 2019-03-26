@@ -26,6 +26,13 @@ export default {
   },
   props: {
     menus: Array
+  },
+  mounted() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  },
+  methods: {
+
   }
 };
 </script>

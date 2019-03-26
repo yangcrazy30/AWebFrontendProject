@@ -121,7 +121,7 @@
       </div>
       <div class="links">
         <a href="http://www.chinaasc.org/">
-          <img :src="require('../assets/1552100098281.gif')">
+          <img :src="require('../assets/1552100080640.jpg')">
         </a>
       </div>
       <div class="links">
@@ -222,8 +222,7 @@ export default {
         this.members = response.data.map(current => {
           return {
             head: current.detailHtml,
-            title: current.Title,
-            time: current.date
+            title: current.name,
           };
         });
       });

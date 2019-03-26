@@ -157,7 +157,7 @@ export default new Router({
             path: 'imgtext',
             component: ListView,
             props: {
-              method: 'getInfos',
+              method: 'getImgTexts',
               type: '图文活动'
             },
             meta: {
@@ -209,7 +209,7 @@ export default new Router({
               url: '/info/local'
             },
             {
-              title: '外省资讯',
+              title: '外地资讯',
               url: '/info/foreign'
             }
           ]
@@ -235,10 +235,10 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getInfos',
-              type: '外省资讯',
+              type: '外地资讯',
             },
             meta: {
-              name: '外省资讯',
+              name: '外地资讯',
               path: '/info/local'
             }
           },
@@ -662,10 +662,10 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getInfos',
-              type: '知名大师'
+              type: '知名专家'
             },
             meta: {
-              name: '知名大师',
+              name: '知名专家',
               path: '/expertlibray/famousmaster'
             }
           },
@@ -765,7 +765,7 @@ export default new Router({
             path: '/associationpublication/jiangsu',
             component: ListView,
             props: {
-              method: 'getInfos',
+              method: 'getImgTexts',
               type: '协会刊物'
             },
             meta: {
@@ -822,5 +822,11 @@ export default new Router({
         ]
       }
     ]
-  }]
+  }],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+        return savedPosition
+    }
+    return {x: 0, y: 0}
+}
 })
