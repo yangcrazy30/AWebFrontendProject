@@ -1,7 +1,7 @@
 <template>
   <div class="header" :style="bgStyle">
     <div class="fill">
-      <img :src="logoUrl">
+      <img :src="logoUrl" style="width: auto;">
     </div>
     <nav class="navbar navbar-default mynav ">
       <div class="container-fluid" style="background: rgb(51,120,31);">
@@ -107,6 +107,8 @@ li{
 .nav-center {
   float: none;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -127,6 +129,10 @@ li{
 
 
   }
+  .navbar-nav>li {
+    float: none;
+  }
+
   .fill {
     height: 500px;
   }

@@ -19,16 +19,37 @@
       type: String,
       detailHtml: String
     },
+    watch: {
+      type: function () {
+        if (this.method && this.type) {
+          axios.get('', {params: {method: this.method, type: this.type}}).then((response) => {
+            rawAxios.get(response.data[0].detailHtml).then((response) => {
+              this.html = response.data
+            })
+            //TODO
+          })
+        }
+        if (this.url) {
+          rawAxios.get(this.url).then((response)=>{
+            this.html=response.data;
+          })
+        }
+      }
+    },
     mounted: function () {
-      axios.get('', {params: {method: this.method, type: this.type}}).then((response) => {
-        // rawAxios.get(response.data[0].detailHtml).then((response) => {
-        //   this.html = response
-        // })
-        //TODO
-      })
-      rawAxios.get(this.url).then((response)=>{
-        this.html=response;
-      })
+      if (this.method && this.type) {
+        axios.get('', {params: {method: this.method, type: this.type}}).then((response) => {
+          rawAxios.get(response.data[0].detailHtml).then((response) => {
+            this.html = response.data
+          })
+          //TODO
+        })
+      }
+      if (this.url) {
+        rawAxios.get(this.url).then((response)=>{
+          this.html=response.data;
+        })
+      }
 
     }
   }

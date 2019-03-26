@@ -6,7 +6,7 @@
         <div class="input-group">
           <input type="text" class="form-control" v-model="searchinput" placeholder="Search for...">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" @click="Search">Go!</button>
+            <button class="btn btn-default" type="button" @click="Search">搜索</button>
           </span>
         </div>
       </div>
@@ -22,39 +22,39 @@
 
     <!--bottom part-->
     <div class="row">
-      <div class="col-sm-3">
-        <div class="row">
-          <div class="col-sm-12">
-            <InfoList title="通知公告" :infos="announcement" style="min-height: 22em"></InfoList>
+      <div class="col-sm-3 fullfill">
+        <div class="row" style="min-height: 300px">
+          <div class="col-sm-12" style="min-height: 300px;">
+            <InfoList title="通知公告" :infos="announcement" style="min-height: 300px"></InfoList>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <InfoList title="会员介绍" :infos="members" style="min-height: 20em"></InfoList>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="row">
-          <div class="col-sm-12">
-            <ImageShow title="协会刊物" :images="magazines"></ImageShow>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <ImageShow title="江苏公园湿地" :images="wetland"></ImageShow>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <ImageShow title="江苏风景名胜" :images="famous"></ImageShow>
+        <div class="row" style="min-height: 300px">
+          <div class="col-sm-12" style="min-height: 300px">
+            <InfoList title="会员介绍" :infos="members" style="min-height: 300px"></InfoList>
           </div>
         </div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-6 fullfill">
+        <div class="row" >
+          <div class="col-sm-12" style="">
+            <ImageShow title="协会刊物" :images="magazines" style="min-height: 150px;"></ImageShow>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-sm-12" style="">
+            <ImageShow title="江苏公园湿地" :images="wetland" style="min-height: 150px"></ImageShow>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" style="">
+            <ImageShow title="江苏风景名胜" :images="famous" style="min-height: 150px"></ImageShow>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 fullfill">
         <div class="row">
           <div class="col-sm-12">
-            <InfoList title="行业资讯" :infos="infos" style="min-height: 29em"></InfoList>
+            <InfoList title="行业资讯" :infos="infos" style="min-height: 400px"></InfoList>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; padding: 0 10px;">
@@ -317,4 +317,35 @@ export default {
 .cle{
   clear: both;
 }
+
+.row {
+  margin: 0;
+}
+
+  .fullfill {
+    padding: 0;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mid {
+    min-height: 200px;
+  }
+
+  .col-sm-12 {
+    padding: 0 5px;
+  }
+
+  .col-sm-6 {
+    padding: 0;
+  }
+  @media (max-width: 768px) {
+       .mid {
+         height: auto;
+       }
+      .fullfill {
+        height: auto;
+      }
+  }
 </style>

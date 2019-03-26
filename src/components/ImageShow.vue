@@ -5,7 +5,7 @@
         <strong class="text-left">{{title}}</strong>
       </div>
       <div class="col-xs-6 a-right">
-        <button type="button" class="btn btn-success btn-sm">更多</button>
+        <button type="button" class="btn btn-success btn-sm" @click="handleClick">更多</button>
       </div>
     </div>
     <div class="row">
@@ -31,6 +31,30 @@ export default {
   },
   components: {
       TheImage
+  },
+  methods: {
+    handleClick: function () {
+      switch (this.title) {
+        case '通知公告':
+          this.$router.push('/notice')
+          break;
+        case '会员介绍':
+          this.$router.push('/members')
+          break;
+        case '协会刊物':
+          this.$router.push('/associationpublication')
+          break;
+        case '江苏公园湿地':
+          this.$router.push('/garden/wetland')
+          break;
+        case '江苏风景名胜':
+          this.$router.push('/garden/famous')
+          break;
+        case '行业资讯':
+          this.$router.push('/info')
+          break;
+      }
+    }
   }
 };
 </script>

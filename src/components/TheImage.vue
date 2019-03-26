@@ -3,7 +3,7 @@
       <div class="row">
           <div class="col-xs-12 col=lg-12 col-md-12 imageshow">
               <router-link :to="'/page?detailHtml='+head">
-                <img :src="url" alt=""  class="img-thumbnail imagecontainer">
+                <img style="max-height: 12em;" :src="url" alt=""  class="img-thumbnail imagecontainer">
               </router-link>
           </div>
       </div>

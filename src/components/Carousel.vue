@@ -39,7 +39,8 @@
 
 <style scoped>
   .carousel-inner {
-    height: 30em;
+    height: 29em;
+    width: 39em;
     overflow: hidden;
   }
   .photo-bg {
