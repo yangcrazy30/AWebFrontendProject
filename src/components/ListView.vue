@@ -157,7 +157,7 @@ export default {
             this.infos = res.data.map(current => {
               return {
                 head: current.detailHtml,
-                title: current.Title,
+                title: current.Title||current.name,
                 time: current.date
               };
             });

@@ -452,7 +452,10 @@ export default new Router({
         redirect: '/members/members',
         component: Detail,
         props: {
-          menus: []
+          menus: [{
+            title:'会员介绍',
+            url:'/members/members'
+          }]
         },
         meta: {
           name: '会员介绍',
@@ -464,7 +467,6 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getMembers',
-              type: ''
             },
             meta: {
               name: '',
@@ -487,7 +489,12 @@ export default new Router({
         redirect: '/notice/notice',
         component: Detail,
         props: {
-          menus: []
+          menus: [
+            {
+              title:'通知公告',
+              url:'/notice/notice'
+            }
+          ]
         },
         meta: {
           name: '通知公告',
