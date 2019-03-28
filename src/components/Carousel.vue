@@ -6,10 +6,10 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div v-for="(image,index) in images" class="item photo-bg" :class="{active: index==0}">
+    <div class="carousel-inner" role="listbox" style="width: 100%;">
+      <div v-for="(image,index) in images" class="item photo-bg" :class="{active: index==0}" style="width: 100%;">
         <!--<img :src="image.url" :alt="image.alt" />-->
-        <div class="photo-bg" :style="{backgroundImage: 'url(' + image.url + ')' }"></div>
+        <div class="photo-bg" :style="{backgroundImage: 'url(' + image.url + ')' }" style="width: 100%;"></div>
         <div class="carousel-caption">
           <router-link :to="'/page?detailHtml='+image.head" style="color: #fff;">{{image.description}}</router-link>
         </div>
@@ -40,7 +40,7 @@
 <style scoped>
   .carousel-inner {
     height: 29em;
-    width: 39em;
+    width: 100%;
     overflow: hidden;
   }
   .photo-bg {

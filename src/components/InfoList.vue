@@ -9,9 +9,12 @@
       </div>
     </div>
     <div class="row" v-for="info in infos">
-      <div class="col-md-12 col-lg-12 col-xs-12 content">
+      <div v-if="!title" class="col-md-12 col-lg-12 col-xs-12 content">
         <router-link class="col-sm-8 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
-        <!-- <span class="col-sm-4 a-right overflow">[{{info.time}}]</span> -->
+         <span  class="col-sm-4 a-right overflow">[{{info.time}}]</span>
+      </div>
+      <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
+        <router-link class="col-sm-12 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
       </div>
     </div>
   </div>
