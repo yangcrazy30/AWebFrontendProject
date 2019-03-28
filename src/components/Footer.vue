@@ -1,40 +1,56 @@
 <template>
   <div class="container-fluid footer">
-
     <div class="footer-span">
-      <span>主办单位：江苏风景园林协会</span>
-      <span>江苏风景园林协会版权所有</span>
-      <span>苏ICP备XXXXXXXXX号</span>
+      <span>{{first}}</span>
     </div>
     <div>
-      <span >地址：江苏省南京市鼓楼区XXXX号</span>
-      <span >电话：025-88888888</span>
-      <span >传真：025-88888888</span>
-      <span >邮箱：025-88888888</span>
+      <span>{{second}}</span>
     </div>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "Footer"
-    }
+import axios from "@/axios";
+export default {
+  name: "Footer",
+  data() {
+    return {
+      first: "",
+      second: ""
+    };
+  },
+  mounted() {
+    axios
+      .get("", {
+        params: {
+          method: 'getRelation',
+          limit: 2,
+          page: 1
+        }
+      })
+      .then(res => {
+        this.count = res.count;
+        this.first = res.data[0].first;
+        this.second=res.data[0].second;
+      });
+  }
+};
 </script>
 
 <style scoped>
-  .container-fluid {
-    background: #f0f2f5
-  }
+.container-fluid {
+  background: #f0f2f5;
+}
 
-  .myinfo {
-    padding: 10px 0px;
-  }
+.myinfo {
+  padding: 10px 0px;
+}
 
-  .footer {
-    padding: 20px 0px;
-  }
+.footer {
+  padding: 20px 0px;
+}
 
-  span{
-    margin: 0.5em;
-  }
+span {
+  margin: 0.5em;
+}
 </style>
