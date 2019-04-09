@@ -9,9 +9,9 @@
       </div>
     </div>
     <div class="row" v-for="info in infos">
-      <div v-if="!title" class="col-md-12 col-lg-12 col-xs-12 content">
-        <router-link class="col-sm-8 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
-         <span  class="col-sm-4 a-right overflow">[{{info.time}}]</span>
+      <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
+        <router-link class="col-xs-8 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
+         <span  class="col-xs-4 a-right overflow">[{{info.time}}]</span>
       </div>
       <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
         <router-link class="col-sm-12 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
@@ -70,27 +70,28 @@ a {
   outline: none;
   text-decoration: none;
   padding: 2px 1px 0;
+  color: #000;
+  background-color: transparent;
 }
 
 a:link {
-  color: #265301;
+  color: #000;
 }
 
 a:visited {
-  color: #437a16;
 }
 
 a:focus {
-  background: #bae498;
 }
 
 a:hover {
-  background: #cdfeaa;
+  text-decoration: underline;
 }
 
 a:active {
-  background: #265301;
-  color: #cdfeaa;
+  background: transparent;
+  color: #000;
+  text-decoration: underline;
 }
 
 .container-fluid {

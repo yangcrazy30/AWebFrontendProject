@@ -68,5 +68,14 @@ section {
 .mynav {
   margin-right: 2em;
 }
+
+  .nav-pills>li>a {
+    color: rgb(51,120,31);
+  }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background-color: rgb(70,170,31);
+  color: #fff;
+}
 </style>
 

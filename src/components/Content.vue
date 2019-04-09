@@ -51,6 +51,10 @@ export default {
   margin: auto 10%;
 }
 
+.breadcrumb a {
+  color: rgb(70,170,31);
+}
+
 @media (max-width: 768px) {
   .outer-contain {
     min-height: 100vh;

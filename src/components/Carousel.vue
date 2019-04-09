@@ -1,8 +1,8 @@
 <template>
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin:0.5em">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin:0.5em" data-interval="3000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li v-for="(image,index) in images" data-target="#carousel-example-generic" :data-slide-to="index">0</li>
+      <li v-for="(image,index) in images" data-target="#carousel-example-generic" :class="{active: index==0}" :data-slide-to="index"></li>
     </ol>
 
     <!-- Wrapper for slides -->

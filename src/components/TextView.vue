@@ -58,5 +58,6 @@
 <style scoped>
   div {
     text-align: left;
+    padding: 0 10%;
   }
 </style>

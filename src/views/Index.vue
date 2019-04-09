@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-sm-4 col-sm-offset-8">
         <div class="input-group">
-          <input type="text" class="form-control" v-model="searchinput" placeholder="Search for...">
+          <input type="text" class="form-control" v-model="searchinput" placeholder="请输入搜索内容">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" @click="Search">搜索</button>
           </span>
@@ -25,7 +25,7 @@
       <div class="col-sm-3 fullfill">
         <div class="row" style="min-height: 300px">
           <div class="col-sm-12" style="min-height: 300px;">
-            <InfoList title="通知公告" :infos="announcement" style="min-height: 300px"></InfoList>
+            <InfoList title="通知公告" :infos="announcement" style="min-height: 350px"></InfoList>
           </div>
         </div>
         <div class="row" style="min-height: 300px">
@@ -37,7 +37,7 @@
       <div class="col-sm-6 fullfill">
         <div class="row" >
           <div class="col-sm-12" style="">
-            <ImageShow title="协会刊物" :images="magazines" style="min-height: 150px;"></ImageShow>
+            <ImageShow title="协会刊物" :images="magazines" style="min-height: 250px;"></ImageShow>
           </div>
         </div>
         <div class="row" >
@@ -54,21 +54,21 @@
       <div class="col-sm-3 fullfill">
         <div class="row">
           <div class="col-sm-12">
-            <InfoList title="行业资讯" :infos="infos" style="min-height: 400px"></InfoList>
+            <InfoList title="行业资讯" :infos="infos" style="min-height: 350px"></InfoList>
           </div>
         </div>
-        <div style="display: flex; flex-direction: column; padding: 0 10px;">
+        <div style="display: flex; flex-direction: column; padding: 0 10px; min-height: 300px; margin-top: 0.3em;">
           <div
             style="display: flex; flex-direction: row; justify-content: space-between; margin: 0.3em 0;"
           >
-            <div>
+            <div style="flex-grow: 1; padding-right: 2%;">
               <router-link :to="'/page?detailHtml='+vipKnow">
-                <img :src="require('../assets/vipKnown.png')">
+                <img style="width: 100%;" :src="require('../assets/vipKnown.png')">
               </router-link>
             </div>
-            <div>
+            <div style="flex-grow: 1; padding-left: 2%;">
               <a href="http://211.149.129.88/GardensTrain/index.html">
-                <img :src="require('../assets/trainApply.png')">
+                <img style="width: 100%;" :src="require('../assets/trainApply.png')">
               </a>
             </div>
           </div>
@@ -93,41 +93,13 @@
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin:1em 0;">
-      <div class="links">
-        <a href="http://www.cast.org.cn/">
-          <img :src="require('../assets/1552100776921.jpg')">
+    <div style="text-align:center;margin:1em 0;vertical-align: top">
+      <div class="links" style="padding-top: 20px; vertical-align: top">友情链接</div>
+      <div class="links" v-for="friend in friends" :key="friend.id">
+        <a :href="friend.htmls">
+          <img style="width: auto; height: 41px;" :src="friend.img"/>
         </a>
-      </div>
-      <div class="links">
-        <a href="http://www.chinasus.org/chinasus/">
-          <img :src="require('../assets/1552100227296.gif')">
-        </a>
-      </div>
-      <div class="links">
-        <a href="http://www.planning.org.cn/">
-          <img :src="require('../assets/1552100206515.jpg')">
-        </a>
-      </div>
-      <div class="links">
-        <a href="http://iflaonline.org/">
-          <img :src="require('../assets/1552100171375.jpg')">
-        </a>
-      </div>
-      <div class="links">
-        <a href="http://www.jchla.com/">
-          <img :src="require('../assets/1552100098281.gif')">
-        </a>
-      </div>
-      <div class="links">
-        <a href="http://www.chinaasc.org/">
-          <img :src="require('../assets/1552100080640.jpg')">
-        </a>
-      </div>
-      <div class="links">
-        <a href="http://www.mohurd.gov.cn/">
-          <img :src="require('../assets/1552100058015.gif')">
-        </a>
+        <div>{{friend.name}}</div>
       </div>
     </div>
   </div>
@@ -156,7 +128,8 @@ export default {
       members: [],
       infos: [],
       searchinput: "",
-      vipKnow: ""
+      vipKnow: "",
+      friends: []
     };
   },
   methods: {
@@ -303,6 +276,12 @@ export default {
       .then(response => {
         this.vipKnow = response.data[0].detailHtml;
       });
+
+    axios
+      .get("http://211.149.129.88/kb_sModel/MainServlet?method=kb_getLinks")
+      .then(response => {
+        this.friends = response.data
+      })
   }
 };
 </script>

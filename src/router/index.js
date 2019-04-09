@@ -49,7 +49,7 @@ export default new Router({
         path:'/page',
         component:TextView,
         meta:{
-          name:'文档',
+          name:'正文',
           path:'./'
         }
       },
@@ -193,7 +193,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -246,7 +246,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -282,7 +282,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -335,7 +335,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -388,7 +388,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -441,7 +441,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -477,7 +477,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -517,7 +517,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -551,7 +551,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -621,7 +621,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -692,7 +692,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -746,7 +746,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -784,7 +784,7 @@ export default new Router({
             path: 'page',
             component: TextView,
             meta: {
-              name: '文档',
+              name: '正文',
               path: './'
             }
           }
@@ -822,7 +822,7 @@ export default new Router({
             path:'page',
             component:TextView,
             meta:{
-              title:'文档',
+              title:'正文',
               path:'./'
             }
           }
