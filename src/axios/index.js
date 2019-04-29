@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://211.149.129.88/sModel/MainServlet'
+axios.defaults.baseURL = 'http://jsfjyl.org.cn/sModel/MainServlet'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
- 
+
 export default {
   get: function (url, params) {
     return new Promise((resolve, reject) => {

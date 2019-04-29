@@ -16,7 +16,7 @@
         <Carousel :images="activities"></Carousel>
       </div>
       <div class="col-sm-6">
-        <InfoList :infos="files"></InfoList>
+        <InfoList path="activity" :infos="files"></InfoList>
       </div>
     </div>
 
@@ -25,36 +25,36 @@
       <div class="col-sm-3 fullfill">
         <div class="row" style="min-height: 300px">
           <div class="col-sm-12" style="min-height: 300px;">
-            <InfoList title="通知公告" :infos="announcement" style="min-height: 350px"></InfoList>
+            <InfoList path="notice" title="通知公告" :infos="announcement" style="min-height: 350px"></InfoList>
           </div>
         </div>
         <div class="row" style="min-height: 300px">
           <div class="col-sm-12" style="min-height: 300px">
-            <InfoList title="会员介绍" :infos="members" style="min-height: 300px"></InfoList>
+            <InfoList path="members" title="会员介绍" :infos="members" style="min-height: 300px"></InfoList>
           </div>
         </div>
       </div>
       <div class="col-sm-6 fullfill">
         <div class="row" >
           <div class="col-sm-12" style="">
-            <ImageShow title="协会刊物" :images="magazines" style="min-height: 250px;"></ImageShow>
+            <ImageShow path="associationpublication" title="协会刊物" :images="magazines" style="min-height: 250px;"></ImageShow>
           </div>
         </div>
         <div class="row" >
           <div class="col-sm-12" style="">
-            <ImageShow title="江苏公园湿地" :images="wetland" style="min-height: 150px"></ImageShow>
+            <ImageShow path="garden" title="江苏公园湿地" :images="wetland" style="min-height: 150px"></ImageShow>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12" style="">
-            <ImageShow title="江苏风景名胜" :images="famous" style="min-height: 150px"></ImageShow>
+            <ImageShow path="garden" title="江苏风景名胜" :images="famous" style="min-height: 150px"></ImageShow>
           </div>
         </div>
       </div>
       <div class="col-sm-3 fullfill">
         <div class="row">
           <div class="col-sm-12">
-            <InfoList title="行业资讯" :infos="infos" style="min-height: 350px"></InfoList>
+            <InfoList path="info" title="行业资讯" :infos="infos" style="min-height: 350px"></InfoList>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; padding: 0 10px; min-height: 300px; margin-top: 0.3em;">
@@ -278,7 +278,7 @@ export default {
       });
 
     axios
-      .get("http://211.149.129.88/kb_sModel/MainServlet?method=kb_getLinks")
+      .get("http://jsfjyl.org.cn/kb_sModel/MainServlet?method=kb_getLinks")
       .then(response => {
         this.friends = response.data
       })

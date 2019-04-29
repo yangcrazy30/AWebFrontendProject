@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-3 imageshow" v-for="image in images">
-            <TheImage :head="image.head"  :description="image.description" :url="image.url"></TheImage>
+            <TheImage :path="path" :head="image.head"  :description="image.description" :url="image.url"></TheImage>
         </div>
     </div>
   </div>
@@ -27,7 +27,11 @@ export default {
   },
   props: {
     title: String,
-    images: Array
+    images: Array,
+    path: {
+      type: String,
+      default: '.'
+    }
   },
   components: {
       TheImage

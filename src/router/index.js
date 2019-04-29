@@ -705,17 +705,17 @@ export default new Router({
         props:{
           menus:[
             {
-              title:'理论动态',
+              title:'园林百科',
               url:'/gardenforum/theoreticaldevelopment'
             },
             {
-              title: '应用研究',
+              title: '科技简讯',
               url: '/gardenforum/appliedresearch'
             }
           ]
         },
         meta: {
-          name: '园林论坛',
+          name: '园林科技',
           path: '/gardenforum'
         },
         children: [{
@@ -723,10 +723,10 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getInfos',
-              type: '理论动态'
+              type: '园林百科'
             },
             meta: {
-              name: '理论动态',
+              name: '园林百科',
               path: '/gardenforum/theoreticaldevelopment'
             }
           },
@@ -735,10 +735,10 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getInfos',
-              type: '应用研究'
+              type: '科技简讯'
             },
             meta: {
-              name: '应用研究',
+              name: '科技简讯',
               path: '/gardenforum/appliedresearch'
             }
           },

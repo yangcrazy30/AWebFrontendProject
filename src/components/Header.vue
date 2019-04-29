@@ -53,7 +53,7 @@
             <router-link to="/expertlibray">专家库</router-link>
           </li>
           <li role="presentation" data-toggle="pill">
-            <router-link to="/gardenforum">园林论坛</router-link>
+            <router-link to="/gardenforum">园林科技</router-link>
           </li>
           <li role="presentation" data-toggle="pill">
             <router-link to="/hr">人才库</router-link>
@@ -84,7 +84,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("http://211.149.129.88/kb_sModel/MainServlet?method=getBanner").then(response => {
+    axios.get("http://jsfjyl.org.cn/kb_sModel/MainServlet?method=getBanner").then(response => {
       // todo
       this.bgStyle.backgroundImage = 'url(' + response.data[0].img + ')'
     })
@@ -131,6 +131,7 @@ li{
   top: 0;
   left: 0;
   max-width: 400px;
+  width: auto;
 }
 
 .mynav {
@@ -142,7 +143,8 @@ li{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
+    margin: 10px 0;
   }
 
   .nav-center {

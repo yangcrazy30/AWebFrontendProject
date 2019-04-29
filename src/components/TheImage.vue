@@ -2,14 +2,14 @@
   <div class="container-fluid">
       <div class="row">
           <div class="col-xs-12 col=lg-12 col-md-12 imageshow">
-              <router-link :to="'/page?detailHtml='+head">
+              <router-link :to="path + '/page?detailHtml='+head">
                 <img style="max-height: 12em;" :src="url" alt=""  class="img-thumbnail imagecontainer">
               </router-link>
           </div>
       </div>
       <div class="row">
           <div class="col-lg-12 col-md-12 col-xs-12">
-            <router-link :to="'/page?detailHtml='+head">
+            <router-link :to="path + '/page?detailHtml='+head">
               <p>{{description}}</p>
             </router-link>
           </div>
@@ -28,6 +28,10 @@ export default {
         description:String,
         url:String,
         head: String,
+      path: {
+          type: String,
+        default: '.'
+      }
     }
 };
 </script>

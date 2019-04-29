@@ -10,11 +10,11 @@
     </div>
     <div class="row" v-for="info in infos">
       <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
-        <router-link class="col-xs-8 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
+        <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
          <span  class="col-xs-4 a-right overflow">[{{info.time}}]</span>
       </div>
       <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
-        <router-link class="col-sm-12 overflow" :to="'./page?detailHtml='+info.head">{{info.title}}</router-link>
+        <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
       </div>
     </div>
   </div>
@@ -56,6 +56,10 @@ export default {
   props: {
     title: String,
     infos: Array,
+    path: {
+      type: String,
+      default: '.'
+    }
   }
 };
 </script>
