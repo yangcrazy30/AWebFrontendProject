@@ -759,8 +759,12 @@ export default new Router({
         props:{
           menus:[
             {
-              title:'江苏风景园林',
+              title:'《江苏风景园林》',
               url:'/associationpublication/jiangsu'
+            },
+            {
+              title:'《简讯》',
+              url:'/associationpublication/news'
             }
           ]
         },
@@ -779,6 +783,18 @@ export default new Router({
               name: '江苏风景园林',
               path: '/associationpublication/jiangsu'
             },
+          },
+          {
+            path:'/associationpublication/news',
+            component:ListView,
+            props:{
+              method:'getImgTexts',
+              type:''
+            },
+            meta:{
+              name:'简讯',
+              path:'/associationpublication/news'
+            }
           },
           {
             path: 'page',
