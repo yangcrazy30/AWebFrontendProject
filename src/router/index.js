@@ -777,7 +777,7 @@ export default new Router({
             component: ListView,
             props: {
               method: 'getImgTexts',
-              type: '协会刊物'
+              type: '江苏风景园林'
             },
             meta: {
               name: '江苏风景园林',
@@ -789,7 +789,7 @@ export default new Router({
             component:ListView,
             props:{
               method:'getImgTexts',
-              type:''
+              type:'简讯'
             },
             meta:{
               name:'简讯',
