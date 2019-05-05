@@ -35,7 +35,7 @@ export default {
           axios
             .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
               params: {
-                method: "kb_" + this.method,
+                method: this.method,
                 type: this.type,
                 limit: this.limit,
                 page: this.page
@@ -99,7 +99,7 @@ export default {
         axios
           .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
             params: {
-              method: "kb_" + this.method,
+              method:this.method,
               type: this.type,
               limit: this.limit,
               page: this.page
@@ -167,7 +167,7 @@ export default {
       axios
         .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
           params: {
-            method: "kb_" + this.method,
+            method:this.method,
             type: this.type,
             limit: this.limit,
             page: this.page
