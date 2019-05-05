@@ -776,7 +776,7 @@ export default new Router({
             path: '/associationpublication/jiangsu',
             component: ListView,
             props: {
-              method: 'getImgTexts',
+              method: 'kb_getImgTexts',
               type: '江苏风景园林'
             },
             meta: {
@@ -788,7 +788,7 @@ export default new Router({
             path:'/associationpublication/news',
             component:ListView,
             props:{
-              method:'getImgTexts',
+              method:'kb_getImgTexts',
               type:'简讯'
             },
             meta:{

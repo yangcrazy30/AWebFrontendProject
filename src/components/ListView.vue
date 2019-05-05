@@ -28,25 +28,50 @@ export default {
     handleChangePage: function(page) {
       this.page = page;
       if (this.type && this.type != "") {
-        axios
-          .get("", {
-            params: {
-              method: this.method,
-              type: this.type,
-              limit: this.limit,
-              page: this.page
-            }
-          })
-          .then(res => {
-            this.count = res.count;
-            this.infos = res.data.map(current => {
-              return {
-                head: current.detailHtml,
-                title: current.Title,
-                time: current.date
-              };
+        if (
+          this.$route.fullPath == "/associationpublication/jiangsu" ||
+          this.$route.fullPath == "/associationpublication/news"
+        ) {
+          axios
+            .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
+              params: {
+                method: "kb_" + this.method,
+                type: this.type,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title,
+                  time: current.date
+                };
+              });
             });
-          });
+        } else {
+          axios
+            .get("", {
+              params: {
+                method: this.method,
+                type: this.type,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title,
+                  time: current.date
+                };
+              });
+            });
+        }
       } else {
         axios
           .get("", {
@@ -67,11 +92,14 @@ export default {
   },
   watch: {
     type: function() {
-      if (this.type && this.type != "") {
+      if (
+        this.$route.fullPath == "/associationpublication/jiangsu" ||
+        this.$route.fullPath == "/associationpublication/news"
+      ) {
         axios
-          .get("", {
+          .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
             params: {
-              method: this.method,
+              method: "kb_" + this.method,
               type: this.type,
               limit: this.limit,
               page: this.page
@@ -88,30 +116,59 @@ export default {
             });
           });
       } else {
-        axios
-          .get("", {
-            params: { method: this.method, limit: this.limit, page: this.page }
-          })
-          .then(res => {
-            this.count = res.count;
-            this.infos = res.data.map(current => {
-              return {
-                head: current.detailHtml,
-                title: current.Title,
-                time: current.date
-              };
+        if (this.type && this.type != "") {
+          axios
+            .get("", {
+              params: {
+                method: this.method,
+                type: this.type,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title,
+                  time: current.date
+                };
+              });
             });
-          });
+        } else {
+          axios
+            .get("", {
+              params: {
+                method: this.method,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title,
+                  time: current.date
+                };
+              });
+            });
+        }
       }
     }
   },
   created: function() {
-    if (this.$route.query.keyword && this.$route.query != "") {
+    if (
+      this.$route.fullPath == "/associationpublication/jiangsu" ||
+      this.$route.fullPath == "/associationpublication/news"
+    ) {
       axios
-        .get("", {
+        .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
           params: {
-            method: this.method,
-            keyword: this.$route.query.keyword,
+            method: "kb_" + this.method,
+            type: this.type,
             limit: this.limit,
             page: this.page
           }
@@ -127,12 +184,12 @@ export default {
           });
         });
     } else {
-      if (this.type && this.type != "") {
+      if (this.$route.query.keyword && this.$route.query != "") {
         axios
           .get("", {
             params: {
               method: this.method,
-              type: this.type,
+              keyword: this.$route.query.keyword,
               limit: this.limit,
               page: this.page
             }
@@ -148,20 +205,46 @@ export default {
             });
           });
       } else {
-        axios
-          .get("", {
-            params: { method: this.method, limit: this.limit, page: this.page }
-          })
-          .then(res => {
-            this.count = res.count;
-            this.infos = res.data.map(current => {
-              return {
-                head: current.detailHtml,
-                title: current.Title||current.name,
-                time: current.date
-              };
+        if (this.type && this.type != "") {
+          axios
+            .get("", {
+              params: {
+                method: this.method,
+                type: this.type,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title,
+                  time: current.date
+                };
+              });
             });
-          });
+        } else {
+          axios
+            .get("", {
+              params: {
+                method: this.method,
+                limit: this.limit,
+                page: this.page
+              }
+            })
+            .then(res => {
+              this.count = res.count;
+              this.infos = res.data.map(current => {
+                return {
+                  head: current.detailHtml,
+                  title: current.Title || current.name,
+                  time: current.date
+                };
+              });
+            });
+        }
       }
     }
   },
