@@ -215,10 +215,10 @@ export default {
       });
 
     axios
-      .get("", {
+      .get("http://jsfjyl.org.cn/kb_sModel/MainServlet", {
         params: {
-          method: "getImgTexts",
-          type: "协会刊物",
+          method: "kb_getImgTexts",
+          type: "江苏风景园林",
           page: "1",
           limit: "4"
         }
