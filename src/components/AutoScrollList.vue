@@ -9,13 +9,26 @@
       </div>
     </div>
     <div class="scroll" id="list" @mouseover="handleOver" @mouseleave="handleLeave">
-      <div class="row" v-for="info in infos">
-        <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
-          <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
-          <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
+      <div id="first">
+        <div class="row" v-for="info in infos">
+          <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
+            <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
+          </div>
+          <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
+            <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+          </div>
         </div>
-        <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
-          <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+      </div>
+      <div id="second">
+        <div class="row" v-for="info in infos">
+          <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
+            <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
+          </div>
+          <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
+            <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -31,6 +44,10 @@
       };
     },
     mounted: function() {
+      this.$nextTick(() => {
+        let scroll = document.getElementById("list")
+        console.log(scroll.childNodes[0])
+      })
       this.handleLeave()
     },
     methods: {
@@ -38,25 +55,31 @@
         console.log("more");
       },
       handleOver: function () {
-        console.log("over")
         clearInterval(this.interval)
       },
       handleLeave: function() {
         let list = document.getElementById("list")
+        let first = document.getElementById("first")
+        let second = document.getElementById("second")
         let forward = true
         this.interval = setInterval(function () {
-          if (list.scrollTop >= list.scrollHeight - 300) {
-            forward = false
-            // list.scrollTop = 0
-          }
-          if (list.scrollTop <= 0) {
-            forward = true
-          }
-          if (forward) {
-            list.scrollTop++
+          if (list.scrollTop>=first.scrollHeight) {
+            list.scrollTop=0
           } else {
-            list.scrollTop--
+            list.scrollTop++
           }
+          // if (list.scrollTop >= list.scrollHeight - 300) {
+          //   forward = false
+          //   // list.scrollTop = 0
+          // }
+          // if (list.scrollTop <= 0) {
+          //   forward = true
+          // }
+          // if (forward) {
+          //   list.scrollTop++
+          // } else {
+          //   list.scrollTop--
+          // }
         }, 30)
       },
       handleClick: function () {
@@ -98,6 +121,10 @@
   .scroll {
     overflow: scroll;
     max-height: 300px;
+  }
+
+  .scroll::-webkit-scrollbar {
+    display: none;
   }
   .cle {
     clear: both;
