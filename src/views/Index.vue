@@ -25,7 +25,8 @@
       <div class="col-sm-3 fullfill">
         <div class="row" style="min-height: 300px">
           <div class="col-sm-12" style="min-height: 300px;">
-            <InfoList path="notice" title="通知公告" :infos="announcement" style="min-height: 350px"></InfoList>
+            <AutoScrollList path="notice" title="通知公告" :infos="announcement" style="min-height: 350px; max-height: 350px;"></AutoScrollList>
+            <!--<InfoList path="notice" title="通知公告" :infos="announcement" style="min-height: 350px"></InfoList>-->
           </div>
         </div>
         <div class="row" style="min-height: 300px">
@@ -110,9 +111,11 @@ import ImageShow from "@/components/ImageShow";
 import InfoList from "@/components/InfoList";
 import Carousel from "@/components/Carousel";
 import axios from "@/axios";
+import AutoScrollList from "../components/AutoScrollList";
 export default {
   name: "Index",
   components: {
+    AutoScrollList,
     ImageShow,
     InfoList,
     Carousel
@@ -186,6 +189,7 @@ export default {
             time: current.date
           };
         });
+        // this.announcement = this.announcement.concat(this.announcement).concat(this.announcement)
       });
 
     // TODO
