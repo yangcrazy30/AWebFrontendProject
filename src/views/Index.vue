@@ -189,7 +189,7 @@ export default {
             time: current.date
           };
         });
-        this.announcement = this.announcement.concat(this.announcement).concat(this.announcement)
+        // this.announcement = this.announcement.concat(this.announcement).concat(this.announcement)
       });
 
     // TODO
