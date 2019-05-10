@@ -206,7 +206,7 @@ export default {
 
     axios
       .get("", {
-        params: { method: "getInfos", type: "本省资讯", page: "1", limit: "20" }
+        params: { method: "getInfos", type: "本省资讯", page: "1", limit: "12" }
       })
       .then(response => {
         this.infos = response.data.map(current => {
