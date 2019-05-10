@@ -16,7 +16,7 @@
         <Carousel :images="activities"></Carousel>
       </div>
       <div class="col-sm-6">
-        <InfoList path="activity" :infos="files"></InfoList>
+        <InfoList  path="activity" :infos="files"></InfoList>
       </div>
     </div>
 
@@ -165,7 +165,7 @@ export default {
 
     axios
       .get("", {
-        params: { method: "getInfos", type: "协会文件", page: "1", limit: "9" }
+        params: { method: "getInfos", type: "协会文件", page: "1", limit: "14" }
       })
       .then(response => {
         this.files = response.data.map(current => {
@@ -206,7 +206,7 @@ export default {
 
     axios
       .get("", {
-        params: { method: "getInfos", type: "本省资讯", page: "1", limit: "8" }
+        params: { method: "getInfos", type: "本省资讯", page: "1", limit: "20" }
       })
       .then(response => {
         this.infos = response.data.map(current => {
