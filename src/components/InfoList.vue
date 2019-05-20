@@ -8,13 +8,19 @@
         <button type="button" class="btn btn-success btn-sm" @click="handleClick">更多</button>
       </div>
     </div>
-    <div class="row" v-for="info in infos">
+    <div class="row" :class="{con:(!title && info.time)}" v-for="info in infos">
       <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
-        <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
-         <span  class="col-xs-4 a-right overflow">[{{info.time}}]</span>
+        <router-link
+          class="col-xs-8 overflow"
+          :to="path + '/page?detailHtml='+info.head"
+        >{{info.title}}</router-link>
+        <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
       </div>
       <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
-        <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+        <router-link
+          class="col-sm-12 overflow"
+          :to="path + '/page?detailHtml='+info.head"
+        >{{info.title}}</router-link>
       </div>
     </div>
   </div>
@@ -30,25 +36,25 @@ export default {
     getmore: function() {
       console.log("more");
     },
-    handleClick: function () {
+    handleClick: function() {
       switch (this.title) {
-        case '通知公告':
-          this.$router.push('/notice')
+        case "通知公告":
+          this.$router.push("/notice");
           break;
-        case '会员介绍':
-          this.$router.push('/members')
+        case "会员介绍":
+          this.$router.push("/members");
           break;
-        case '协会刊物':
-          this.$router.push('/associationpublication')
+        case "协会刊物":
+          this.$router.push("/associationpublication");
           break;
-        case '江苏公园湿地':
-          this.$router.push('/garden/wetland')
+        case "江苏公园湿地":
+          this.$router.push("/garden/wetland");
           break;
-        case '江苏风景名胜':
-          this.$router.push('/garden/famous')
+        case "江苏风景名胜":
+          this.$router.push("/garden/famous");
           break;
-        case '行业资讯':
-          this.$router.push('/info')
+        case "行业资讯":
+          this.$router.push("/info");
           break;
       }
     }
@@ -58,7 +64,7 @@ export default {
     infos: Array,
     path: {
       type: String,
-      default: '.'
+      default: "."
     }
   }
 };
@@ -113,6 +119,10 @@ a:active {
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.con:first-child {
+  margin-top: 0.7em;
 }
 
 .overflow {
