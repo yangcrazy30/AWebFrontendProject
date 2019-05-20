@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   export default {
     name: "Pagination",
     data() {
@@ -32,8 +33,25 @@
       limit: {type: Number, default: 10}
     },
     created() {
-      for (let i=0;i<this.count/this.limit+1&&i<5;i++) {
-        this.pages[i] = i+this.currentPage
+      console.log("count: " + this.count)
+      console.log("currentPage: " + this.currentPage)
+      for (let i=0;i<this.count/this.limit&&i<5;i++) {
+        console.log(i)
+        console.log(this.count/this.limit+1)
+        console.log(i+this.currentPage)
+        Vue.set(this.pages, i, i+this.currentPage)
+      }
+    },
+    watch: {
+      count: function () {
+        this.pages = [];
+        for (let i=0;i<this.count/this.limit&&i<5;i++) {
+          console.log(i)
+          console.log(this.count/this.limit+1)
+          console.log(i+this.currentPage)
+          Vue.set(this.pages, i, i+this.currentPage)
+          // this.pages[i] = i+this.currentPage
+        }
       }
     },
     methods: {
