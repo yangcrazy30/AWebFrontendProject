@@ -12,191 +12,215 @@
       <div id="first">
         <div class="row" v-for="info in infos">
           <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
-            <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <router-link
+              class="col-xs-8 overflow"
+              :to="path + '/page?detailHtml='+info.head"
+            >{{info.title}}</router-link>
             <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
           </div>
           <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
-            <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <router-link
+              class="col-sm-12 overflow"
+              :to="path + '/page?detailHtml='+info.head"
+            >{{info.title}}</router-link>
           </div>
         </div>
       </div>
+      <div id="unuseful" class="whitespace">无意义文本</div>
       <div id="second">
         <div class="row" v-for="info in infos">
           <div v-if="!title && info.time" class="col-md-12 col-lg-12 col-xs-12 content">
-            <router-link class="col-xs-8 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <router-link
+              class="col-xs-8 overflow"
+              :to="path + '/page?detailHtml='+info.head"
+            >{{info.title}}</router-link>
             <span class="col-xs-4 a-right overflow">[{{info.time}}]</span>
           </div>
           <div v-else class="col-md-12 col-lg-12 col-xs-12 content">
-            <router-link class="col-sm-12 overflow" :to="path + '/page?detailHtml='+info.head">{{info.title}}</router-link>
+            <router-link
+              class="col-sm-12 overflow"
+              :to="path + '/page?detailHtml='+info.head"
+            >{{info.title}}</router-link>
           </div>
         </div>
       </div>
+      <div id="unuseful" class="whitespace">无意义文本</div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "AutoScrollList",
-    data() {
-      return {
-        interval: null
-      };
+export default {
+  name: "AutoScrollList",
+  data() {
+    return {
+      interval: null
+    };
+  },
+  mounted: function() {
+    this.$nextTick(() => {
+      let scroll = document.getElementById("list");
+      console.log(scroll.childNodes[0]);
+    });
+    this.handleLeave();
+  },
+  methods: {
+    getmore: function() {
+      console.log("more");
     },
-    mounted: function() {
-      this.$nextTick(() => {
-        let scroll = document.getElementById("list")
-        console.log(scroll.childNodes[0])
-      })
-      this.handleLeave()
+    handleOver: function() {
+      clearInterval(this.interval);
     },
-    methods: {
-      getmore: function () {
-        console.log("more");
-      },
-      handleOver: function () {
-        clearInterval(this.interval)
-      },
-      handleLeave: function() {
-        let list = document.getElementById("list")
-        let first = document.getElementById("first")
-        let second = document.getElementById("second")
-        let forward = true
-        this.interval = setInterval(function () {
-          if (list.scrollTop>=first.scrollHeight) {
-            list.scrollTop=0
-          } else {
-            list.scrollTop++
-          }
-          // if (list.scrollTop >= list.scrollHeight - 300) {
-          //   forward = false
-          //   // list.scrollTop = 0
-          // }
-          // if (list.scrollTop <= 0) {
-          //   forward = true
-          // }
-          // if (forward) {
-          //   list.scrollTop++
-          // } else {
-          //   list.scrollTop--
-          // }
-        }, 30)
-      },
-      handleClick: function () {
-        switch (this.title) {
-          case '通知公告':
-            this.$router.push('/notice')
-            break;
-          case '会员介绍':
-            this.$router.push('/members')
-            break;
-          case '协会刊物':
-            this.$router.push('/associationpublication')
-            break;
-          case '江苏公园湿地':
-            this.$router.push('/garden/wetland')
-            break;
-          case '江苏风景名胜':
-            this.$router.push('/garden/famous')
-            break;
-          case '行业资讯':
-            this.$router.push('/info')
-            break;
+    handleLeave: function() {
+      let list = document.getElementById("list");
+      let first = document.getElementById("first");
+      let unusefulword = document.getElementById("unuseful");
+      let second = document.getElementById("second");
+      let forward = true;
+      this.interval = setInterval(function() {
+        if (list.scrollTop >= first.scrollHeight + unusefulword.scrollHeight) {
+          list.scrollTop = 0;
+        } else {
+          list.scrollTop++;
         }
-      }
+        // if (list.scrollTop >= list.scrollHeight - 300) {
+        //   forward = false
+        //   // list.scrollTop = 0
+        // }
+        // if (list.scrollTop <= 0) {
+        //   forward = true
+        // }
+        // if (forward) {
+        //   list.scrollTop++
+        // } else {
+        //   list.scrollTop--
+        // }
+      }, 30);
     },
-    props: {
-      title: String,
-      infos: Array,
-      path: {
-        type: String,
-        default: '.'
+    handleClick: function() {
+      switch (this.title) {
+        case "通知公告":
+          this.$router.push("/notice");
+          break;
+        case "会员介绍":
+          this.$router.push("/members");
+          break;
+        case "协会刊物":
+          this.$router.push("/associationpublication");
+          break;
+        case "江苏公园湿地":
+          this.$router.push("/garden/wetland");
+          break;
+        case "江苏风景名胜":
+          this.$router.push("/garden/famous");
+          break;
+        case "行业资讯":
+          this.$router.push("/info");
+          break;
       }
     }
-
+  },
+  props: {
+    title: String,
+    infos: Array,
+    path: {
+      type: String,
+      default: "."
+    }
   }
+};
 </script>
 
 <style scoped>
-  .scroll {
-    overflow: scroll;
-    max-height: 300px;
-  }
+.scroll {
+  overflow: scroll;
+  max-height: 300px;
+}
 
-  .scroll::-webkit-scrollbar {
-    display: none;
-  }
-  .cle {
-    clear: both;
-  }
+/* #first{
+    margin-bottom: 80px;
+  } */
 
-  a {
-    outline: none;
-    text-decoration: none;
-    padding: 2px 1px 0;
-    color: #000;
-    background-color: transparent;
-  }
+.whitespace {
+  word-wrap: break-word;
+  font-size: 28px;
+  color: #f0f2f5;
+}
 
-  a:link {
-    color: #000;
-  }
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.cle {
+  clear: both;
+}
 
-  a:visited {
-  }
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+  color: #000;
+  background-color: transparent;
+}
 
-  a:focus {
-  }
+a:link {
+  color: #000;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+a:visited {
+}
 
-  a:active {
-    background: transparent;
-    color: #000;
-    text-decoration: underline;
-  }
+a:focus {
+}
 
-  .container-fluid {
-    border-radius: 5px;
-    /*border: 1px solid black;*/
-    background: #f0f2f5;
-    margin: 0.5em 0;
-    min-height: 29em;
-  }
+a:hover {
+  text-decoration: underline;
+}
 
-  .content {
-    text-align: left;
-    margin: 0.2em;
-    white-space: nowrap;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+a:active {
+  background: transparent;
+  color: #000;
+  text-decoration: underline;
+}
 
-  .overflow {
-    white-space: nowrap;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+.container-fluid {
+  border-radius: 5px;
+  /*border: 1px solid black;*/
+  background: #f0f2f5;
+  margin: 0.5em 0;
+  min-height: 29em;
+}
 
-  .a-left {
-    text-align: left;
-  }
+.content {
+  text-align: left;
+  margin: 0.2em;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
-  .a-right {
-    text-align: right;
-  }
-  strong {
-    float: left;
-    margin: 0.5em;
-    margin-top: 1em;
-  }
+.overflow {
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
-  button {
-    float: right;
-    margin: 0.5em;
-  }
+.a-left {
+  text-align: left;
+}
+
+.a-right {
+  text-align: right;
+}
+strong {
+  float: left;
+  margin: 0.5em;
+  margin-top: 1em;
+}
+
+button {
+  float: right;
+  margin: 0.5em;
+}
 </style>

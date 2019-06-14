@@ -179,7 +179,7 @@ export default {
 
     axios
       .get("", {
-        params: { method: "getInfos", type: "协会公告", page: "1", limit: "7" }
+        params: { method: "getInfos", type: "协会公告", page: "1", limit: "10" }
       })
       .then(response => {
         this.announcement = response.data.map(current => {
@@ -189,7 +189,7 @@ export default {
             time: current.date
           };
         });
-        this.announcement = this.announcement.concat(this.announcement).concat(this.announcement)
+        // this.announcement = this.announcement.concat(this.announcement);
       });
 
     // TODO
